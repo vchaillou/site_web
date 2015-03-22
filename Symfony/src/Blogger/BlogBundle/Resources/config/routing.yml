@@ -1,0 +1,33 @@
+
+
+# src/Blogger/BlogBundle/Resources/config/routing.yml
+BloggerBlogBundle_homepage:
+    pattern:  /
+    defaults: { _controller: BloggerBlogBundle:Page:index }
+    requirements:
+        _method:  GET
+
+BloggerBlogBundle_critiques:
+    pattern:  /critiques
+    defaults: { _controller: BloggerBlogBundle:Page:critiques }
+    requirements:
+        _method:  GET
+
+BloggerBlogBundle_blog_show_id:
+    pattern:  /critiques/{id}
+    defaults: { _controller: BloggerBlogBundle:Blog:showId }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BloggerBlogBundle_blog_new:
+    pattern: /nouvelle_critique
+    defaults: { _controller: BloggerBlogBundle:Blog:newArticle }
+    requirements:
+        _method:  GET|POST
+
+BloggerBlogBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: BloggerBlogBundle:Page:contact }
+    requirements:
+        _method:  GET|POST

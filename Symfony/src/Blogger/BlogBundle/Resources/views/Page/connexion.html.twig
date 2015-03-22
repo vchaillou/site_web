@@ -1,0 +1,20 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/connexion.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Connexion{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Connexion à AhoyCiné</h1>
+    </header>
+
+    <p>Se connecter avec son compte. Pas encore inscrit ? Inscrivez-vous <a href="{{ path('BloggerBlogBundle_inscription') }}">ici</a></p>
+    
+    <form action="{{ path('BloggerBlogBundle_connexion') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Se connecter" />
+    </form>
+{% endblock %}

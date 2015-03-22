@@ -1,0 +1,20 @@
+{# src/Blogger/BlogBundle/Resources/views/Page/inscription.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Inscription{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Inscription à AhoyCiné</h1>
+    </header>
+
+    <p>Vous voulez vous inscrire sur AhoyCiné ?</p>
+    
+    <form action="{{ path('BloggerBlogBundle_inscription') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="S'inscrire" />
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{# src/Blogger/BlogBundle/Resources/views/Blog/new.html.twig #}
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Nouvelle critique{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Ecrire un nouvel article</h1>
+    </header>
+
+    <p>Ecrivez votre nouvel article</p>
+
+    <form action="{{ path('BloggerBlogBundle_blog_new') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.titre) }}
+        {{ form_row(form.article) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Publier" />
+    </form>
+{% endblock %}

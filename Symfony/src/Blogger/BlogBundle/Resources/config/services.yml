@@ -1,0 +1,6 @@
+# src/Blogger/BlogBundle/Resources/config/services.yml
+services:
+    blogger_blog.registration.form.type:
+        class: Blogger\BlogBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: blogger_blog_registration }

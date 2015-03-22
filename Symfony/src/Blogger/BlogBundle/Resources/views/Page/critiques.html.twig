@@ -1,0 +1,28 @@
+{% extends 'BloggerBlogBundle::layout.html.twig' %}
+
+{% block title %}Critiques{% endblock%}
+
+{% block body %}
+    {% for blog in blogs %}
+        <article class="blog">
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('BloggerBlogBundle_blog_show_id', { 'id': blog.id }) }}">{{ blog.title }}</a></h2>
+            </header>
+
+         	{#<img src="{{ asset(['images/', blog.image]|join) }}" />#}
+            <div class="snippet">
+                <p>{{ blog.blog(500) }}</p>
+                <p class="continue"><a href="{{ path('BloggerBlogBundle_blog_show_id', { 'id': blog.id }) }}">Lire la suite</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Commentaire: -</p>
+                <p>Posté par <span class="highlight">{{blog.author}}</span> le {{ blog.created|date('h:iA') }}</p>
+              
+            </footer>
+        </article>
+    {% else %}
+        <p>Il n'y a pas encore de critiques</p>
+    {% endfor %}
+{% endblock %}
